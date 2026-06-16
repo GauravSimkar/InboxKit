@@ -1,7 +1,7 @@
-// React.memo — only the specific cell that changed re-renders (1200 cells total)
-const { useRef, useEffect } = React;
+import { useRef, useEffect, memo } from 'react';
 
-const Cell = React.memo(function Cell({ blockId, data, userId, claimBlock, unclaimBlock }) {
+// React.memo — only the specific cell that changed re-renders (600 cells total)
+const Cell = memo(function Cell({ blockId, data, userId, claimBlock, unclaimBlock }) {
   const ref = useRef(null);
   const prevOwner = useRef(null);
 
@@ -32,4 +32,4 @@ const Cell = React.memo(function Cell({ blockId, data, userId, claimBlock, uncla
   );
 });
 
-window.Cell = Cell;
+export default Cell;

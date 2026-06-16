@@ -1,4 +1,4 @@
-const { useEffect, useRef } = React;
+import { useEffect, useRef } from 'react';
 
 function Leaderboard({ entries }) {
   return (
@@ -70,4 +70,4 @@ function UserBadge({ user, cooldown }) {
   );
 }
 
-window.UI = { Leaderboard, UserBadge };
+export { Leaderboard, UserBadge };

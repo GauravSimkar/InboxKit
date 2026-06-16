@@ -1,4 +1,7 @@
-const { useState, useEffect, useRef, useCallback } = React;
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { io } from 'socket.io-client';
+import Cell from './components/Cell';
+import { Leaderboard, UserBadge } from './components/UI';
 
 const COLS = 30;
 const ROWS = 20;
@@ -77,7 +80,7 @@ function App() {
     for (let c = 0; c < COLS; c++) {
       const id = `${r}-${c}`;
       cells.push(
-        <window.Cell
+        <Cell
           key={id}
           blockId={id}
           data={grid[id] ?? null}
@@ -91,13 +94,11 @@ function App() {
 
   return (
     <div className="relative min-h-screen bg-gray-950 px-4 py-6">
-
       <h1 className="text-center font-bold text-2xl tracking-tight mb-5 text-white">
         Grid<span className="text-indigo-400">Claim</span>
-        <span className="ml-3 text-xs font-normal text-gray-600 tracking-widest uppercase">40 × 30</span>
+        <span className="ml-3 text-xs font-normal text-gray-600 tracking-widest uppercase">30 × 20</span>
       </h1>
 
-      {/* Canvas */}
       <div
         style={{ display: 'grid', gridTemplateColumns: `repeat(${COLS}, 1fr)`, gap: '2px' }}
         className="max-w-5xl mx-auto"
@@ -105,8 +106,8 @@ function App() {
         {cells}
       </div>
 
-      <window.UI.Leaderboard entries={leaderboard} />
-      <window.UI.UserBadge   user={user} cooldown={cooldown} />
+      <Leaderboard entries={leaderboard} />
+      <UserBadge user={user} cooldown={cooldown} />
 
       {toast && (
         <div className="fixed top-5 left-1/2 -translate-x-1/2 bg-red-500/90 backdrop-blur text-white text-sm font-medium px-5 py-2 rounded-full shadow-lg z-50 pointer-events-none">
@@ -117,4 +118,4 @@ function App() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+export default App;
