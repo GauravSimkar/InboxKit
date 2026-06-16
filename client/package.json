@@ -1,0 +1,7 @@
+{
+  "name": "gridclaim-client",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npx serve . -l 5500"
+  }
+}
