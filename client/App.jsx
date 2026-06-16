@@ -1,7 +1,7 @@
 const { useState, useEffect, useRef, useCallback } = React;
 
-const COLS = 40;
-const ROWS = 30;
+const COLS = 30;
+const ROWS = 20;
 
 const SERVER_URL = 'https://inboxkit-4reg.onrender.com';
 
