@@ -3,10 +3,7 @@ const { useState, useEffect, useRef, useCallback } = React;
 const COLS = 40;
 const ROWS = 30;
 
-// Auto-switches between local dev and production — no manual change needed
-const SERVER_URL = window.location.hostname === 'localhost'
-  ? 'http://localhost:4000'
-  : 'https://gridclaim-api.onrender.com'; // ← update to your Render URL once after deploy
+const SERVER_URL = 'https://inboxkit-4reg.onrender.com';
 
 function App() {
   const [grid, setGrid]               = useState({});

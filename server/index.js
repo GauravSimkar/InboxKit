@@ -10,8 +10,7 @@ const registerHandlers = require('./socket/handlers');
 const app    = express();
 const server = http.createServer(app);
 
-// Allow any origin locally; lock to CLIENT_URL in production
-const CLIENT_ORIGIN = process.env.CLIENT_URL || '*';
+const CLIENT_ORIGIN = process.env.CLIENT_URL;
 
 const io = new Server(server, {
   cors: { origin: CLIENT_ORIGIN, methods: ['GET', 'POST'] },
